@@ -27,34 +27,32 @@ export default async function handler(req, res){
         //     'TERMOS':data.termos
         // })
 
-        setTimeout(() =>{
-            sheet.addRow({
-              'NOME DO RESPONSÁVEL':data.nmresponsavel,
-              'CPF DO RESPONSÁVEL':data.cpfresponsavel,
-              'RG DO RESPONSÁVEL':data.rgresponsavel,
-              'ORGÃO EMISSOR - UF':data.orgUF,
-              'TELEFONE DO RESPONSÁVEL':data.telefoneresponsavel,
-              'DATA DE NASCIMENTO RESPONSÁVEL':data.dtnascimentoresponsavel,
-              'TELEFONE EMERGENCIA':data.telefoneemergencia,
-              'ENDEREÇO':data.endereco,
-              'PROFISSÃO':data.profissao,
-              'CURSO':data.curso,	
-              'QUANTIDADE DE PESSOAS NA CASA':data.qtdPCasa,
-              'RENDA DA CASA':data.rendaDCasa,
-              'NOME DO ALUNO':data.nmaluno,
-              'DATA DE NASCIMENTO':data.fdata,	
-              'SEXO':data.sexo,
-              'SERIE ESCOLAR':data.serieescolar,
-              'TELEFONE':data.telefone,
-              'ALERGIA':data.alergia,	
-              'TIPO DE ALERGIA':data.talergia,	
-              'CPF DO ALUNO':data.cpfaluno,
-              'RG DO ALUNO':data.rgaluno,
-              'TERMOS':data.termos
-            })
-    
-            res.status(200).json(req.body)
-        },10000)
+        sheet.addRow({
+            'NOME DO RESPONSÁVEL':data.nmresponsavel,
+            'CPF DO RESPONSÁVEL':data.cpfresponsavel,
+            'RG DO RESPONSÁVEL':data.rgresponsavel,
+            'ORGÃO EMISSOR - UF':data.orgUF,
+            'TELEFONE DO RESPONSÁVEL':data.telefoneresponsavel,
+            'DATA DE NASCIMENTO RESPONSÁVEL':data.dtnascimentoresponsavel,
+            'TELEFONE EMERGENCIA':data.telefoneemergencia,
+            'ENDEREÇO':data.endereco,
+            'PROFISSÃO':data.profissao,
+            'CURSO':data.curso,	
+            'QUANTIDADE DE PESSOAS NA CASA':data.qtdPCasa,
+            'RENDA DA CASA':data.rendaDCasa,
+            'NOME DO ALUNO':data.nmaluno,
+            'DATA DE NASCIMENTO':data.fdata,	
+            'SEXO':data.sexo,
+            'SERIE ESCOLAR':data.serieescolar,
+            'TELEFONE':data.telefone,
+            'ALERGIA':data.alergia,	
+            'TIPO DE ALERGIA':data.talergia,	
+            'CPF DO ALUNO':data.cpfaluno,
+            'RG DO ALUNO':data.rgaluno,
+            'TERMOS':data.termos
+        })
+
+        res.status(200).json(req.body)
         
     }catch(e){
         console.log('error: ', e)

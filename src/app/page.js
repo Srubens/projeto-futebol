@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react"
 
-export default function Page(){
+export default function Page (){
 
     const [checkMarcado, setCheckMarcado] = useState(false)
     const [form, setForm] = useState({
@@ -22,9 +22,13 @@ export default function Page(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         try{
-            const response = await fetch('/api/hello',{
-                method:'POST',
+            const response = await fetch('/api/hello',
+            { 
+                method:'POST', 
                 body:JSON.stringify(form)
+            })
+            .then((res)=>{
+                console.log(res)
             })
             console.log('response', response)
             const data = await response.json()
