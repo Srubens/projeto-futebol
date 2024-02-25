@@ -7,7 +7,7 @@ const serviceAccountAuth = new JWT({
     scopes: [
       'https://www.googleapis.com/auth/spreadsheets',
     ],
-  });
+});
 
 export default async function handler(req, res){
     if(req.method === 'POST'){
