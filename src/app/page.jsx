@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react"
 import '../css/style.css'
+import 'sweetalert2/dist/sweetalert2.css'
+import Swal from 'sweetalert2'
 
 
 export default function Page (){
@@ -101,6 +103,12 @@ export default function Page (){
             })
             .then((response) => response.json())
             .then((data) => console.log(data));
+
+            Swal.fire({
+                title: "Cadastro efetuado com sucesso!",
+                text: `Parabéns ${form.nmaluno} você foi cadastrado.`,
+                icon: "success"
+              });
 
             
             setForm((old) =>({
@@ -331,6 +339,7 @@ export default function Page (){
                         onChange={onChange}
                         className="form-control"
                         name="serieescolar"
+                        value={form.serieescolar}
                          />
                     </div>
                     <div className="col-md-6 col-12 p-2">
