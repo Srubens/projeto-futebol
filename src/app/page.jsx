@@ -72,7 +72,8 @@ export default function Page (){
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Basic ' + btoa('18ofa6x1:pfrvex3h26hv36i09fds')
                 },
                 body: JSON.stringify({
                     data: [{
@@ -97,7 +98,9 @@ export default function Page (){
                         'TIPO DE ALERGIA':form.talergia,	
                         'CPF DO ALUNO':form.cpfaluno,
                         'RG DO ALUNO':form.rgaluno,
-                        'TERMOS':form.termos
+                        'TERMOS':form.termos,
+                        'NOMEA':form.nmaluno,
+                        'TELEFONEA':form.telefone
                     }]
                 })
             })
