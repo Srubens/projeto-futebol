@@ -72,8 +72,7 @@ export default function Page (){
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer e299rptlw1qrjo34gz3wyjqru43i0fp0q1zi4n5r`
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     data: [{
