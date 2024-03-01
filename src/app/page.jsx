@@ -73,7 +73,7 @@ export default function Page (){
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Authorization': 'Basic ' + btoa('18ofa6x1:pfrvex3h26hv36i09fds')
+                    'Authorization': `Bearer e299rptlw1qrjo34gz3wyjqru43i0fp0q1zi4n5r`
                 },
                 body: JSON.stringify({
                     data: [{
