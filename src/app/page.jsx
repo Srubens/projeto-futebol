@@ -68,7 +68,7 @@ export default function Page (){
         e.preventDefault();
         try{
 
-            const response = await fetch('/pages/api/hello',
+            const response = await fetch('https://projeto-futebol.vercel.app/api/hello',
                 {
                     method: 'POST',
                     'Accept': 'application/json',
