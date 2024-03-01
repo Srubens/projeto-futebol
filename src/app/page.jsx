@@ -68,18 +68,41 @@ export default function Page (){
         e.preventDefault();
         try{
 
-            const response = await fetch('https://projeto-futebol.vercel.app/api/hello',
-                {
-                    method: 'POST',
+            fetch('https://sheetdb.io/api/v1/g6pzaqljw9h87', {
+                method: 'POST',
+                headers: {
                     'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    body:JSON.stringify(form)
-                }                
-            )
-
-            const data = await response.json()
-            console.log(data)
-
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: [{
+                        'NOME DO RESPONSÁVEL':form.nmresponsavel,
+                        'CPF DO RESPONSÁVEL':form.cpfresponsavel,
+                        'RG DO RESPONSÁVEL':form.rgresponsavel,
+                        'ORGÃO EMISSOR - UF':form.orgUF,
+                        'TELEFONE DO RESPONSÁVEL':form.telefoneresponsavel,
+                        'DATA DE NASCIMENTO RESPONSÁVEL':form.dtnascimentoresponsavel,
+                        'TELEFONE EMERGENCIA':form.telefoneemergencia,
+                        'ENDEREÇO':form.endereco,
+                        'PROFISSÃO':form.profissao,
+                        'CURSO':form.curso,	
+                        'QUANTIDADE DE PESSOAS NA CASA':form.qtdPCasa,
+                        'RENDA DA CASA':form.rendaDCasa,
+                        'NOME DO ALUNO':form.nmaluno,
+                        'DATA DE NASCIMENTO':form.fdata,	
+                        'SEXO':form.sexo,
+                        'SERIE ESCOLAR':form.serieescolar,
+                        'TELEFONE':form.telefone,
+                        'ALERGIA':form.alergia,	
+                        'TIPO DE ALERGIA':form.talergia,	
+                        'CPF DO ALUNO':form.cpfaluno,
+                        'RG DO ALUNO':form.rgaluno,
+                        'TERMOS':form.termos
+                    }]
+                })
+            })
+            .then((response) => response.json())
+            .then((data) => console.log(data));
 
             Swal.fire({
                 title: "Cadastro efetuado com sucesso!",
