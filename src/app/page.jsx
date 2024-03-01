@@ -68,7 +68,7 @@ export default function Page (){
         e.preventDefault();
         try{
 
-            const response = await fetch('/api/hello',
+            const response = await fetch('/pages/api/hello',
                 {
                     method: 'POST',
                     'Accept': 'application/json',
@@ -79,7 +79,7 @@ export default function Page (){
 
             const data = await response.json()
             console.log(data)
-            
+
 
             Swal.fire({
                 title: "Cadastro efetuado com sucesso!",
