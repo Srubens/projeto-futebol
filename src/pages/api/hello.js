@@ -1,6 +1,7 @@
 import { GoogleSpreadsheet } from 'google-spreadsheet'
 import { JWT } from 'google-auth-library'
 
+
 const serviceAccountAuth = new JWT({
     email: process.env.NEXT_CLIENTE_EMAIL,
     key: process.env.NEXT_PRIVATE_KEY,

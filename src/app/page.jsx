@@ -7,6 +7,7 @@ import Swal from 'sweetalert2'
 
 export default function Page (){
 
+    const [message, setMessage] = useState({})
     const curso = ['Selecione o curso','SIM', 'NÃO']
     const tarlegia = ['Tem Alergia?','SIM', 'NÃO']//TIPO ARLERGIA
     const sexo = ['Selecione o sexo','Masculino', 'Feminino']
@@ -68,43 +69,13 @@ export default function Page (){
         e.preventDefault();
         try{
 
-            fetch('https://sheetdb.io/api/v1/g6pzaqljw9h87', {
+            const response = await fetch('/api/hello', {
                 method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    data: [{
-                        'NOME DO RESPONSÁVEL':form.nmresponsavel,
-                        'CPF DO RESPONSÁVEL':form.cpfresponsavel,
-                        'RG DO RESPONSÁVEL':form.rgresponsavel,
-                        'ORGÃO EMISSOR - UF':form.orgUF,
-                        'TELEFONE DO RESPONSÁVEL':form.telefoneresponsavel,
-                        'DATA DE NASCIMENTO RESPONSÁVEL':form.dtnascimentoresponsavel,
-                        'TELEFONE EMERGENCIA':form.telefoneemergencia,
-                        'ENDEREÇO':form.endereco,
-                        'PROFISSÃO':form.profissao,
-                        'CURSO':form.curso,	
-                        'QUANTIDADE DE PESSOAS NA CASA':form.qtdPCasa,
-                        'RENDA DA CASA':form.rendaDCasa,
-                        'NOME DO ALUNO':form.nmaluno,
-                        'DATA DE NASCIMENTO':form.fdata,	
-                        'SEXO':form.sexo,
-                        'SERIE ESCOLAR':form.serieescolar,
-                        'TELEFONE':form.telefone,
-                        'ALERGIA':form.alergia,	
-                        'TIPO DE ALERGIA':form.talergia,	
-                        'CPF DO ALUNO':form.cpfaluno,
-                        'RG DO ALUNO':form.rgaluno,
-                        'TERMOS':form.termos,
-                        'NOMEA':form.nmaluno,
-                        'TELEFONEA':form.telefone
-                    }]
-                })
+                body: JSON.stringify(form)
             })
-            .then((response) => response.json())
-            .then((data) => console.log(data));
+            const data = await response.json()
+            console.log(data)
+            setMessage(data)
 
             Swal.fire({
                 title: "Cadastro efetuado com sucesso!",
