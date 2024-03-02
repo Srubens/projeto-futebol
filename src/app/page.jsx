@@ -7,7 +7,6 @@ import Swal from 'sweetalert2'
 
 export default function Page (){
 
-    const [message, setMessage] = useState({})
     const curso = ['Selecione o curso','SIM', 'NÃO']
     const tarlegia = ['Tem Alergia?','SIM', 'NÃO']//TIPO ARLERGIA
     const sexo = ['Selecione o sexo','Masculino', 'Feminino']
@@ -69,13 +68,43 @@ export default function Page (){
         e.preventDefault();
         try{
 
-            const response = await fetch('/api/hello', {
+            fetch('https://sheetdb.io/api/v1/g6pzaqljw9h87', {
                 method: 'POST',
-                body: JSON.stringify(form)
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: [{
+                        'NOME DO RESPONSÁVEL':form.nmresponsavel,
+                        'CPF DO RESPONSÁVEL':form.cpfresponsavel,
+                        'RG DO RESPONSÁVEL':form.rgresponsavel,
+                        'ORGÃO EMISSOR - UF':form.orgUF,
+                        'TELEFONE DO RESPONSÁVEL':form.telefoneresponsavel,
+                        'DATA DE NASCIMENTO RESPONSÁVEL':form.dtnascimentoresponsavel,
+                        'TELEFONE EMERGENCIA':form.telefoneemergencia,
+                        'ENDEREÇO':form.endereco,
+                        'PROFISSÃO':form.profissao,
+                        'CURSO':form.curso,	
+                        'QUANTIDADE DE PESSOAS NA CASA':form.qtdPCasa,
+                        'RENDA DA CASA':form.rendaDCasa,
+                        'NOME DO ALUNO':form.nmaluno,
+                        'DATA DE NASCIMENTO':form.fdata,	
+                        'SEXO':form.sexo,
+                        'SERIE ESCOLAR':form.serieescolar,
+                        'TELEFONE':form.telefone,
+                        'ALERGIA':form.alergia,	
+                        'TIPO DE ALERGIA':form.talergia,	
+                        'CPF DO ALUNO':form.cpfaluno,
+                        'RG DO ALUNO':form.rgaluno,
+                        'TERMOS':form.termos,
+                        'NOMEA':form.nmaluno,
+                        'TELEFONEA':form.telefone
+                    }]
+                })
             })
-            const data = await response.json()
-            console.log(data)
-            setMessage(data)
+            .then((response) => response.json())
+            .then((data) => console.log(data));
 
             Swal.fire({
                 title: "Cadastro efetuado com sucesso!",
@@ -117,9 +146,6 @@ export default function Page (){
 
     return(
         <div className="container">
-            <pre>
-                {JSON.stringify(form,2,null)}
-            </pre>
         
         <form onSubmit={handleSubmit}>
         <div className="col-md-12 col-12 p-2">
