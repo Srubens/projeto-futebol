@@ -112,7 +112,7 @@ export default function Page (){
                 icon: "success"
               });
 
-            
+            console.log(form)
             setForm((old) =>({
                 ...old,
                 'nmresponsavel':'',
