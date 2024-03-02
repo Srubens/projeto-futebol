@@ -2,11 +2,11 @@
     "functions": {
       "api/hello.js": {
         "memory": 3009,
-        "maxDuration": 75
+        "maxDuration": 240
       },
       "api/*.js": {
         "memory": 3009,
-        "maxDuration": 75
+        "maxDuration": 240
       }
     }
   }
